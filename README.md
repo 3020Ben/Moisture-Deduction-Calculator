@@ -27,15 +27,13 @@ A desktop application built with **Python + PyQt5** that helps compute:
 ---
 
 ## 📂 Project Structure
-
-MoistureDeductionCalculator/
+**MoistureDeductionCalculator/**
 │
-├── ui_main.py # Main GUI application
-├── calculations.py # Formula logic
-├── validators.py # (Optional) external validation helpers
-├── icon.ico # (Optional) app icon
-└── README.md # Project info
-
+├── `ui_main.py` # Main GUI application
+├── `calculations.py` # Formula logic
+├── `validators.py` # External validation helpers
+├── `icon.ico` # App icon
+└── `README.md` # Project info
 
 ---
 
@@ -43,38 +41,50 @@ MoistureDeductionCalculator/
 
 ### 1. Install dependencies
 
-```bash
+`bash
 pip install pyqt5
 
 If you want to build an executable:
+
+`bash
+
 pip install pyinstaller
 
+---
 
 ▶️ Running the Application
+`bash
 python ui_main.py
 
-🏗 Building a Windows .exe
+---
 
+🏗 Building a Windows .exe
 Use PyInstaller:
+
+`bash
+
 pyinstaller --onefile --noconsole ui_main.py
 
 Executable will be located in:
+
+`bash
+
 dist/ui_main.exe
 
+---
 
 🧮 Formulas Used
-
 Deduction Formula
+
 Deducted Weight = (Net Weight × (Moisture% - Allowable%)) / (100 - Allowable%)
 Payment Weight = Net Weight - Deducted Weight
 
 Moisture Content Range Formula
-
 (Implemented in calculations.py)
 
+---
 
 💡 Future Improvements
-
 CSV/PDF Export UI
 
 Add custom App Icon
@@ -83,7 +93,8 @@ Add About Window
 
 Add Inno Setup Installer
 
+---
 
 📜 License
-
 MIT License
+
