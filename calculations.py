@@ -45,7 +45,7 @@ def moisture_content_range(net_weight: int, desired_deduction: int, allowable_mo
         desired_deduction: The desired weight to deduct from the net weight.
         allowable_moisture: The allowable moisture content percentage.
     Returns:
-        list: The range of moisture content that will yield the desired deduction."""
+        int: The minimum moisture and maximum moisture."""
     validate_positive_int(net_weight, "Net Weight")
     validate_positive_int(desired_deduction, "Desired Deduction")
     validate_allowable(allowable_moisture, name="Allowable Moisture Content")
@@ -85,4 +85,16 @@ def moisture_content_range(net_weight: int, desired_deduction: int, allowable_mo
     max_moisture = round(m - 0.01, 2)
 
     return min_moisture, max_moisture
+
+def payment_weight(net_weight: int, deduction: int) -> int:
+   """Calculate the payment weight based on the net weight and deduction.
+
+    Args:
+        net_weight: The net weight of the delivery.
+        deduction: The weight deducted from the net weight.
+    Returns:
+        int: The payment weight."""
+   
+   payment_weight = round(net_weight - deduction, 0)
+   return payment_weight
 
