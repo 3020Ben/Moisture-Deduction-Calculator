@@ -23,12 +23,12 @@ def deducted_weight(net_weight: int, moisture_content: float, allowable_moisture
             "payment_weight": net_weight
         }
     
-    deduction = round(
+    deduction = int(round(
         ((moisture_content - allowable_moisture) * net_weight) / (100 - allowable_moisture),
         0
-        )
+        ))
 
-    payment_weight = round(net_weight - deduction, 0)
+    payment_weight = int(round(net_weight - deduction, 0))
 
     return {
         "deducted_weight": deduction,
