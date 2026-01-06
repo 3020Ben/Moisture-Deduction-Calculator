@@ -1,37 +1,44 @@
 # Moisture & Deduction Calculator (PyQt5)
 
-A desktop application built with **Python + PyQt5** that calculates:
+A desktop application built with **Python + PyQt5** for calculating:
 
-- 📉 **Deduction weight** based on moisture content  
-- 📊 **Moisture content range** based on desired deduction  
+- 📉 **Deducted weight** based on moisture content  
+- 📊 **Moisture content range** based on a desired deduction  
 
-Designed with a clean UI, input validation, and an optional **Auto Compute mode** for faster workflows.
+Designed for simplicity, accuracy, and fast manual computation.
 
 ---
 
 ## ✨ Features
 
-- Two calculators side-by-side:
+- Two calculators in one window:
   - **Deduction Calculator**
   - **Moisture Content Range Calculator**
-- Auto Compute mode with selectable behavior:
-  - Auto-compute **Deduction**
-  - Auto-compute **Moisture Range**
-- Input validation using PyQt validators
+- Input validation (integers, decimals, and limits enforced)
 - Auto-highlight input fields on focus
-- Clear buttons per panel + global reset
-- Light / Dark mode toggle
-- Defensive error handling (no crashes on empty inputs)
-- Modular calculation logic
+- Read-only result fields
+- Clear buttons for each calculator
+- Keyboard-friendly tab navigation
+- Defensive error handling using dialog alerts
 
 ---
 
-## 🖥️ Screens & UX Highlights
+## 🖥️ Application Overview
 
-- Right-aligned numeric inputs
-- Read-only result fields
-- Auto-compute safeguards with user prompts
-- Keyboard-friendly (Tab navigation supported)
+### Deduction Calculator
+Calculates:
+- Deducted weight (kg)
+- Payment weight (kg)
+
+Based on:
+- Net weight
+- Moisture content
+- Allowable moisture percentage
+
+### Moisture Content Range Calculator
+Calculates:
+- Minimum and maximum moisture content (%)  
+that produces a desired deduction.
 
 ---
 
@@ -47,11 +54,11 @@ Designed with a clean UI, input validation, and an optional **Auto Compute mode*
 
 ├── test_calculations.py # Business logic / formulas test calculations
 
-├── validators.py # External validation helpers
+├── validators.py # Input validation helpers
 
 ├── requirements.txt # Python dependencies
 
-├── icon.ico # App icon
+├── icon.ico # Application icon (optional)
 
 └── README.md # Project documentation
 
@@ -61,7 +68,7 @@ Designed with a clean UI, input validation, and an optional **Auto Compute mode*
 ## 🔧 Installation
 
 ### 1️⃣ Clone the repository
-```bash
+`bash
 git clone https://github.com/your-username/moisture-deduction-calculator.git
 cd moisture-deduction-calculator
 
@@ -81,18 +88,21 @@ python ui_main.py
 
 🏗 Building a Windows Executable
 
-Use PyInstaller:
+This project can be packaged into a standalone .exe using PyInstaller.
 
-`bash
+Install PyInstaller
+Install Pillow for icon photo conversion
 
-pyinstaller --onefile --noconsole ui_main.py
+pip install pyinstaller
+pip install Pillow
 
-Executable will be located in:
+Build the executable
+pyinstaller --onefile --windowed --icon=icon.ico ui_main.py
 
-`bash
+
+The executable will be located at:
 
 dist/ui_main.exe
-
 ---
 
 🧮 Formulas Used
@@ -109,15 +119,20 @@ Moisture Content Range Formula
 
 ---
 
+Moisture Content Range
+
+Calculated iteratively in calculations.py to determine the moisture
+range that results in the desired deduction.
+
+---
+
 💡 Future Improvements
 
-CSV / PDF export
-
-Application icon
+Export results to CSV / PDF
 
 About dialog window
 
-Installer package (Inno Setup)
+Application installer (Inno Setup)
 
 Unit tests for calculations
 
